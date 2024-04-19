@@ -23,9 +23,14 @@ spec:
           volumeMounts:
             - name: grafana-storage
               mountPath: /var/lib/grafana
+            - name: grafana-datasources-config
+              mountPath: /etc/grafana/provisioning/datasources
       volumes:
         - name: grafana-storage
           emptyDir: {}
+        - name: grafana-datasources-config
+          configMap:
+            name: grafana-datasources
 ---
 apiVersion: v1
 kind: Service
@@ -50,8 +55,8 @@ data:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: http://prometheus.roseweigee-dev.svc:9090
+        url: http://prometheus.roseweigee-dev.svc
       - name: Jaeger
         type: jaeger
         access: proxy
-        url: http://jaeger.roseweigee-dev.svc:16686
+        url: http://jaeger.roseweigee-dev.svc

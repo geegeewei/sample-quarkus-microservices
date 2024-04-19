@@ -50,8 +50,8 @@ data:
       - name: Prometheus
         type: prometheus
         access: proxy
-        url: http://prometheus.roseweigee-dev.svc
+        url: http://prometheus.roseweigee-dev.svc:9090
       - name: Jaeger
         type: jaeger
         access: proxy
-        url: http://jaeger.roseweigee-dev.svc
+        url: http://jaeger.roseweigee-dev.svc:16686

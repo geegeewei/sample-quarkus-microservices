@@ -44,6 +44,18 @@ spec:
       port: 80
       targetPort: 3000
 ---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: grafana
+spec:
+  to:
+    kind: Service
+    name: grafana
+    weight: 100
+  tls:
+    termination: edge
+---    
 apiVersion: v1
 kind: ConfigMap
 metadata:

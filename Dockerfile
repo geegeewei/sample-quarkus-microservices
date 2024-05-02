@@ -3,8 +3,8 @@ FROM ghcr.io/graalvm/graalvm-ce:ol8-java17-22.3.2
 WORKDIR /app
 
 # 复制 Quarkus 应用程序的构建输出
-COPY build/quarkus-app/lib/ /app/lib/
-COPY build/quarkus-app/*-runner.jar /app/app.jar
+COPY employee-service/build/quarkus-app/lib/ /app/lib/
+COPY employee-service/build/quarkus-app/*-runner.jar /app/app.jar
 
 # 设置启动命令和相关环境变量
 EXPOSE 8080
